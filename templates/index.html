@@ -12,25 +12,48 @@
   <title>Movie App</title>
 </head>
 <body>
+  <div class="body-container">
+  <div class="post-container">
+    <div class="header">
+      <h1><b>MOVIE FORTUNE</b></h1>
+    </div>
   <form method="POST">
-    <input type="text" name="movie">
-    <input type="text" name="rating">
+    <input type="text" name="movie" class="searchbar">
+      <div class="rating-container">
+      <input type="button" name="decrease" class="value-btn" value="-"> 
+      <input type="text" name="rating" class="ratingbar">
+      <input type="button"  name="increase" class="value-btn" value="+">     
+      </div>  
     <input type="submit">
-  </form>
-  {% if movies %}
+  </form>      
+  </div>
+  <div class="result-container">
+    <div class="result-text">
+    {% if movies %}
     {% for movie in movies %}
-      <h2>{{ movie[0] }}, {{ movie[1] }}</h2><a href="/delete/{{ movie[2] }}">X</a>
+    <div class="input-item">
+      <h2>{{ movie[0] }}, {{ movie[1] }}</h2><a href="/delete/{{ movie[2] }}"><b>X</b></a>
+    </div>
     {% endfor %}
   {% else %}  
     <h2>Please input a movie.</h2>
   {% endif %}
   {% if suggestions %}
     {% for suggestion in suggestions %}
-      <h2>{{ suggestion[1] }} | {{ suggestion[2] }}% Match</h2>
+    <div class="result-item">
+      <h2>{{ suggestion[1] }} | {{ suggestion[2] }}% Match</h2>      
+    </div>
+
     {% endfor %}
   {% else %}
     <h2>No suggestions yet.</h2>
-  {% endif %}
+  {% endif %}      
+    </div>
+
+  </div>
+
+  </form>
+ </div>
 </body>
 
 <script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js') }}"></script>

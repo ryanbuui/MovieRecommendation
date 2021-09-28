@@ -1,3 +1,138 @@
 * {
   font-family: "Quicksand", sans-serif;
 }
+
+input:-webkit-autofill { 
+  -webkit-background-clip: text;
+}
+
+body{
+  height: 1000px;
+  display: flex;
+}
+
+.body-container{
+  width:100%;
+  height:100%;
+  display: flex;
+}
+
+.header{
+  height: 100px;
+  text-align: center;
+  color: rgb(111, 180, 240);
+  padding-top: 10%;
+  font-family: Helvetica;
+}
+
+h1{
+  text-align: center;
+  padding-top: 5%;
+}
+
+form{
+  vertical-align: middle;
+  width:400px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15%;
+  padding: 0px;
+}
+
+.searchbar{
+  height: 20px;
+  background-color: white;
+  align-items: center;
+  width: 75%;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.searchbar > input {
+  color: white;
+  width: 400px; 
+  border:none; 
+  outline-width:0;
+}
+
+
+.ratingbar{
+  width: 10px;
+  background-color: white;
+  align-items: center;
+  padding:10px;
+  border: 1px solid lightgray;
+  border-radius: 999px;
+}
+
+.post-container{
+  background-color: rgb(237, 242, 253);
+  height: 125vh;
+  width: 100%;
+  flex:2;
+}
+
+.result-container{
+  background-color: rgb(255, 255, 255);
+
+
+  display: flex;
+  flex-direction: column;
+  flex:2;
+  height: 125vh;
+  width: 100%
+}
+
+.rating-container{
+  margin-right: auto;
+  align-content: stretch;
+  flex-direction: column;
+  margin: 3px;
+}
+
+.value-btn{
+  background-color: white;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding:10px;
+  border: 1px solid lightgray;
+  border-radius: 999px;
+}
+
+.value-btn:hover{
+  cursor: pointer;
+}
+
+.result-text{
+  padding: 10%;
+}
+
+.result-item{
+  padding: 1px;
+  text-align: center;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgb(9 87 167 / 20%);
+  background-color: #d5d9fc;
+  color: #ffffff;
+  transition: transform 200ms ease-in;
+}
+
+
+.input-item{
+  text-align: center;
+  padding: 2px;
+  margin: 5px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: #d8fcd5;
+  color: #ffffff;
+  transition: transform 200ms ease-in;
+}
+
+.input-item > a{ 
+  color: red;
+}
