@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  
+  <title>Movie App</title>
+</head>
+<body>
+  <form method="POST">
+    <input type="text" name="movie">
+    <input type="text" name="rating">
+    <input type="submit">
+  </form>
+  {% if movies %}
+    {% for movie in movies %}
+      <h2>{{ movie[0] }}, {{ movie[1] }}</h2><a href="/delete/{{ movie[2] }}">X</a>
+    {% endfor %}
+  {% else %}  
+    <h2>Please input a movie.</h2>
+  {% endif %}
+  {% if suggestions %}
+    {% for suggestion in suggestions %}
+      <h2>{{ suggestion[1] }} | {{ suggestion[2] }}% Match</h2>
+    {% endfor %}
+  {% else %}
+    <h2>No suggestions yet.</h2>
+  {% endif %}
+</body>
+
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+</html>
