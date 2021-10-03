@@ -38,16 +38,22 @@ app = Flask(__name__)
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
+    titles = df_sim['title'].tolist()
     if request.method == "POST":
         movie = request.form['movie']
-        rating = int(request.form['rating'])
-        movies.append([movie, rating, len(movies)])
-        suggestions = movie_prediction(movies)
-        return render_template('index.html', movies=movies, suggestions=suggestions)
+        if movie:
+            rating = int(request.form['rating'])
+            movies.append([movie, rating, len(movies)])
+            suggestions = movie_prediction(movies)
+            return render_template('index.html', movies=movies, suggestions=suggestions, titles=titles)
+        elif movies:
+            suggestions = movie_prediction(movies)
+            return render_template('index.html', movies=movies, suggestions=suggestions, titles=titles)
+        return render_template('index.html', titles=titles)
     elif movies:
         suggestions = movie_prediction(movies)
-        return render_template('index.html', movies=movies, suggestions=suggestions)
-    return render_template('index.html')
+        return render_template('index.html', movies=movies, suggestions=suggestions, titles=titles)
+    return render_template('index.html', titles=titles)
 
 
 @app.route("/delete/<int:movie_index>")
