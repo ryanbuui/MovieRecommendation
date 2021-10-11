@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify, session, url_for, re
 import numpy as np
 import pandas as pd
 from flask_wtf import FlaskForm
-from wtforms import TextField, SubmitField
 from operator import itemgetter
 
 
