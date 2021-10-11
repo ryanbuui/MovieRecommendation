@@ -60,7 +60,7 @@ def delete(movie_index):
     movies.pop(movie_index)
     for movie in movies:
         movie[2] = movies.index(movie)
-    return redirect(url_for("index"))
+    return redirect("/")
 
 
 df_sim = pd.read_csv('./data/item_sim_df.csv')
